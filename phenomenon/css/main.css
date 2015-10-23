@@ -1,0 +1,42 @@
+.md
+{
+  margin: 0px 30px;
+  font-family: serif;
+  font-size: 18px;
+}
+
+.chapter
+{
+  margin: 0px 21em 55px 21em;
+}
+
+h2, h3
+{
+  margin: 0px 0px;
+  font-family: serif;
+}
+
+h4
+{
+  margin-bottom: 3px;
+}
+
+.titleContents
+{
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+code
+{
+	white-space: pre;
+	word-break: normal;
+	word-wrap: normal;
+}
+
+.jumbotron
+{
+	font-family: serif;
+	font-variant: small-caps;
+	text-rendering: auto;
+}
