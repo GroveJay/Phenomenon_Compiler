@@ -16,13 +16,13 @@ class Chapter(object):
 		self.title = t
 
 chapterClass = "col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1"
-soup = BeautifulSoup(open('template.html'), "html.parser")
+soup = BeautifulSoup(open('template.html', encoding="utf-8"), "html.parser")
 main = soup.find(id="main")
 reddit = "http://www.reddit.com/r/thephenomenon/comments/"
 chapters = []
 r = praw.Reddit(user_agent='phenomenon_aggregator.0.0.1')
 
-output = open('index.html', 'w')
+output = open('index.html', 'w', encoding="utf-8")
 
 with open('data.txt') as tsv:
 	reader = csv.reader(tsv, delimiter='\t')
@@ -33,6 +33,7 @@ with open('data.txt') as tsv:
 for chapter in chapters:
 	container = soup.new_tag('div')
 	container['class'] = chapterClass
+	container['id'] = str(chapter.number)
 	submissionLink = reddit + chapter.link
 	if (chapter.link.count('/') == 2):
 		submission = r.get_submission(submissionLink)
@@ -54,7 +55,6 @@ for chapter in chapters:
 	titleContainer['class'] = "titleContents"
 	
 	chapterNumber = soup.new_tag('h4')
-	chapterNumber['id'] = "chapter" + str(chapter.number)
 	chapterNumber.append(str(chapter.number))
 	titleContainer.append(chapterNumber)
 
@@ -64,6 +64,7 @@ for chapter in chapters:
 
 	alink = soup.new_tag('a')
 	alink['href'] = chapter.permalink
+	alink['class'] = "permalink"
 	link = soup.new_tag('h3')
 	icon = soup.new_tag('small')
 	icon['class'] = "glyphicon glyphicon-link"
