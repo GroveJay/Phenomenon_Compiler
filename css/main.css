@@ -1,18 +1,18 @@
 .md
 {
-  margin: 0px 30px;
+  margin: 0 30px;
   font-family: serif;
   font-size: 18px;
 }
 
 .chapter
 {
-  margin: 0px 21em 55px 21em;
+  margin: 0 21em 55px 21em;
 }
 
 h2, h3
 {
-  margin: 0px 0px;
+  margin: 0 0;
   font-family: serif;
 }
 
@@ -39,4 +39,11 @@ code
 	font-family: serif;
 	font-variant: small-caps;
 	text-rendering: auto;
+	background: #355C63;
+	color: #f5f5f5;
+}
+
+#phenomenon
+{
+	position: absolute;
 }
