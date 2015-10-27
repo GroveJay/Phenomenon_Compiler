@@ -29,7 +29,7 @@ Particle.prototype.attract = function(x, y) {
 };
 
 Particle.prototype.draw = function() {
-	ctx.strokeStyle = '#111111';
+	ctx.strokeStyle = 'rgba(17,17,17,' + (Math.random() * 1.5) + ')';
 	ctx.lineWidth = 2;
 	ctx.beginPath();
 	ctx.moveTo(this.oldX, this.oldY);
