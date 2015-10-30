@@ -1,3 +1,12 @@
+body{
+	background-color: #191F27;
+}
+
+#main
+{
+	color: #DDD;
+}
+
 .md
 {
   margin: 0 30px;
@@ -5,9 +14,17 @@
   font-size: 18px;
 }
 
-.chapter
+.md pre
 {
-  margin: 0 21em 55px 21em;
+	background-color: #3b475a;
+	color: inherit;
+}
+
+#main > div
+{
+  background-color: #2C3949;
+  margin-bottom: 30px;
+  padding-bottom: 18px;
 }
 
 h2, h3
@@ -34,13 +51,18 @@ code
 	word-wrap: normal;
 }
 
+blockquote
+{
+	border-left: 2px solid #5C7394;
+}
+
 .jumbotron
 {
 	font-family: serif;
 	font-variant: small-caps;
 	text-rendering: auto;
-	background: #355C63;
-	color: #f5f5f5;
+	background: #3b475a;
+	color: #DDD;
 }
 
 #phenomenon
