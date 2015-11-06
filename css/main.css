@@ -1,5 +1,6 @@
 body{
 	background-color: #191F27;
+	color: #DDD;
 }
 
 #main
@@ -63,9 +64,132 @@ blockquote
 	text-rendering: auto;
 	background: #3b475a;
 	color: #DDD;
+	text-align: center;
 }
 
 #phenomenon
 {
 	position: absolute;
+}
+
+.menu{
+	z-index: 100;
+	width: 0;
+	height:0;
+	position: fixed;
+	top: 0;
+	right: 0;
+	background-color: rgba(16,16,16,.72);
+	transition: 0.3s;
+}
+
+.menuTitle
+{
+	text-align:center;
+	font-family: serif;
+	font-size: 45px;
+	margin-bottom: 20px;
+}
+
+.menu.open{
+	width: 100%;
+	height: 100%;
+	padding-top:20px;
+}
+
+.noscroll{
+	overflow-y: hidden;
+}
+
+.chapterGroups{
+	max-height:100%;
+	display:none;
+	padding: 0 10px;
+	overflow-y:auto;
+}
+
+.chapterGroupCell{
+	margin-bottom: 28px;
+	transition: 0.3s;
+}
+
+.chapterGroup{
+	background-color: #3b475a;
+	text-align: center;
+}
+
+.ChapterGroupLabel{
+	font-size: 35px;
+	cursor: pointer;
+}
+
+.ChapterGroupLabel:hover{
+	background-color: #CCC;
+	color: #3b475a;
+	transition: .3s;
+}
+
+.chapterGroupCell.open .chapterGroup{
+	max-height: 100%;
+	background-color: transparent;
+}
+
+.chapterGroupCell.open{
+	width:100%;
+}
+
+.chapter{
+	background-color: #3b475a;
+	font-size: 35px;
+	cursor: pointer;
+}
+
+.chapter:hover{
+	background-color: #CCC;
+	color: #3b475a;
+	transition: .3s;
+}
+
+.chapterCell
+{
+	display: none;
+	margin-bottom: 28px;
+	transition: 0.3s;
+}
+
+.button {
+	position: fixed;
+	right: 0;
+	top: 0;
+}
+.button span {
+	display: block;
+}
+
+.grid-button {
+	padding: 2rem;
+	cursor: pointer;
+	user-select: none;
+}
+
+.grid-button .grid {
+	width: 1rem;
+	height: 1rem;
+	background: #ecf0f1;
+	color: #ecf0f1;
+	/* Not in use when the colors are specified below */
+	transition: 0.3s;
+}
+
+.grid-button.close .grid {
+	-webkit-transform: rotate3d(0, 0, 1, -45deg) scale3d(0.8, 0.8, 0.8);
+	transform: rotate3d(0, 0, 1, -45deg) scale3d(0.8, 0.8, 0.8);
+}
+
+.grid-button.rearrange .grid {
+	box-shadow: -1.25rem -1.25rem, 0 -1.25rem, 1.25rem -1.25rem, -1.25rem 0, 1.25rem 0, -1.25rem 1.25rem, 0 1.25rem, 1.25rem 1.25rem;
+}
+
+.grid-button.rearrange.close .grid {
+	box-shadow: 0 -1rem, 0 -2rem, 1rem 0, -2rem 0, 2rem 0, -1rem 0, 0 2rem, 0 1rem;
 }

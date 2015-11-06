@@ -67,3 +67,87 @@ function frame() {
         particles[i].draw();
     }
 }
+
+function toggleMenu()
+{
+	$('.button').toggleClass('close');
+	$('.menu').toggleClass('open');
+	$('.chapterGroups').toggle();
+	$('body').toggleClass('noscroll');
+}
+
+$('.button').click(function(){
+	toggleMenu();
+});
+
+var chaptersContainer = $('.chapterGroups');
+var currentChapterGroup = null;
+var chapterCount = $('.titleContents').length
+for (var i = 1; i <= chapterCount; i = i + 1)
+{
+	if ( i % 10 === 1 )
+	{
+		var upper = i + 9;
+		upper = (upper >= chapterCount) ? chapterCount : upper;
+		currentChapterGroup = $('<div />', {
+			"class": 'chapterGroup'
+		});
+
+		currentChapterGroup.append($('<div />', {
+			text: i + '-' + upper,
+			group: i + '-' + upper,
+			"class": "ChapterGroupLabel"
+		}));
+
+		var chapterGroupCell = $('<div />', {
+			"class": 'chapterGroupCell col-md-2 col-sm-3 col-xs-4'
+		});
+
+		chapterGroupCell.append(currentChapterGroup);
+		chaptersContainer.append(chapterGroupCell);
+	}
+
+	var chapterCell = $('<div />', {
+		"class": 'chapterCell col-md-2 col-sm-3 col-xs-4'
+	});
+	var chapter = $('<div />', {
+		"class": 'chapter',
+		text: i,
+		chapter: i
+	});
+
+	chapterCell.append(chapter)
+	currentChapterGroup.append(chapterCell);
+}
+
+function ToggleChapterGroupCell(group)
+{
+	$(group).find(".chapterCell").toggle();
+	$(group).toggleClass('open');
+	$('.chapterGroupCell').not(group).toggle();
+}
+
+$('.ChapterGroupLabel').click(function(e){
+	e.stopPropagation();
+	$chapterGroupCell = $(this).parent().parent();
+	if ($chapterGroupCell.hasClass('open'))
+	{
+		$(this).text($(this).attr("group"));
+	}
+	else
+	{
+		$(this).text("⬅");
+	}
+	ToggleChapterGroupCell($chapterGroupCell);
+});
+
+$('.chapterGroupCell').click(function(){
+	ToggleChapterGroupCell(this);
+})
+
+$('.chapter').click(function(e){
+	e.stopPropagation();
+	$(this).parent().siblings('.ChapterGroupLabel').click();
+	toggleMenu();
+	window.location.hash = $(this).attr("chapter");
+});
