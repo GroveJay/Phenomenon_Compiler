@@ -27,7 +27,6 @@ def get_all_posts(r, subreddit, titleText, lower):
 	
 	interval=86400*128
 	offset = -time.timezone
-	lower -= offset
 	maxupper = datetime.datetime.now(datetime.timezone.utc).timestamp()
 	usermode = 'Emperor_Cartagia'
 	lower -= offset
